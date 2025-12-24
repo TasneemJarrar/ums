@@ -13,7 +13,9 @@ const displayUsers = async ()=>{
         <td>${user.email}</td>
         <td><img src="${user.imageUrl}" width="100px" /></td>
         <td>
-          <button type="button" class="btn btn-outline-danger" onclick=deleteUser(${user.id}) >Delete</button>
+          <button type="button" class="btn btn-outline-danger" onclick=deleteUser(${user.id})>
+            Delete
+          </button>
         </td>
       </tr>
     `
