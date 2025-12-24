@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="btn btn-indigo fs-5 fw-medium" href="./create.html">New User</a>
+            <a class="create-user-btn btn btn-indigo fs-5 fw-medium" href="#">Add New User</a>
           </li>
 
         </ul>
@@ -39,6 +39,42 @@
 
   <main>
 
+    <section class="create-user pt-5 hide">
+      <div class="container">
+
+        <div class="card p-5 border-0 shadow">
+
+          <form class="createUserForm" name="createUser">
+
+            <div class="form-floating mb-3">
+              <input type="text" name="name" class="form-control" id="userName" placeholder="">
+              <label for="userName">User Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="email" name="email" class="form-control" id="userEmail" placeholder="name@example.com">
+              <label for="userEmail">User Email address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="number" name="age" class="form-control" id="userAge" placeholder="">
+              <label for="userAge">User Age</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="file" name="image" class="form-control" id="userImage" placeholder="">
+              <label for="userImage">User Image</label>
+            </div>
+
+            <button type="submit" class="submit-user-btn btn btn-indigo">Submit</button>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
     <section class="users py-5">
       <div class="container">
 
@@ -48,7 +84,7 @@
               <tr>
                 <th scope="col" class="">User ID</th>
                 <th scope="col" class=""">User Name</th>
-                <th scope="col" class="">User Email</th>
+                <th scope=" col" class="">User Email</th>
                 <th scope="col" class="">User Image</th>
                 <th scope="col" class="">Actions</th>
               </tr>

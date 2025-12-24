@@ -25,4 +25,7 @@ body{
   --bs-btn-disabled-bg: #6610f2;
   --bs-btn-disabled-border-color: #6610f2;
 }
+.hide {
+  display: none;
+}
 

@@ -32,3 +32,26 @@ const deleteUser = async (id)=>{
   const response = await axios.delete(`http://ums12.runasp.net/api/users/${id}`)
   console.log(response);
 }
+
+const createUserForm = document.forms['createUser'];
+
+createUserForm.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const formData = new FormData(createUserForm);
+  const response = await axios.post(`http://ums12.runasp.net/api/users`,formData);
+  console.log(response);
+})
+
+const adduserform = document.querySelector(".create-user");
+const createUserbtn = document.querySelector(".create-user-btn");
+const submitbtn = document.querySelector(".submit-user-btn");
+
+  createUserbtn.addEventListener("click", () => {
+    adduserform.classList.remove("hide");
+  });
+
+  submitbtn.addEventListener("click", () => {
+    adduserform.classList.add("hide");
+  });
+
+
