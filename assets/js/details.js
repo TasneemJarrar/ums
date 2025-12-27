@@ -5,13 +5,21 @@ const getUser = async () => {
   return response.data;
 };
 const displayUserData = async () => {
-  const response = await getUser();
-  console.log(response);
-  document.querySelector(".user .details .userName").textContent = response.data.name;
-  document.querySelector(".user .details .userEmail").textContent = response.data.email;
-  document.querySelector(".user .details .userAge").textContent = response.data.age;
-  if (response.data.image) {
-    document.querySelector(".user .details .userImg").src = response.data.image;
+  try{
+    const response = await getUser();
+    console.log(response);
+    document.querySelector(".user .details .userName").textContent = response.data.name;
+    document.querySelector(".user .details .userEmail").textContent = response.data.email;
+    document.querySelector(".user .details .userAge").textContent = response.data.age;
+    if (response.data.image) {
+      document.querySelector(".user .details .userImg").src = response.data.image;
+    }
+    document.querySelector(".loader").classList.add("d-none");
+  } catch (error) {
+    document.querySelector(".loader").classList.remove("d-none");
+    document.querySelector(".loader").classList.add("d-none");
+  } finally {
+    document.querySelector(".loader").classList.add("d-none");
   }
 };
 displayUserData();

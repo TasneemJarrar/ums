@@ -1,12 +1,16 @@
-const getUsers = async ()=>{
-  const response = await axios.get(`http://ums12.runasp.net/api/users?limit=1000`);
+const getUsers = async () => {
+  const response = await axios.get(
+    `http://ums12.runasp.net/api/users?limit=1000`
+  );
   return response.data;
-}
-
-const displayUsers = async ()=>{
-  const result = await getUsers();
-  const users = result.users.map( (user)=> {
-    return`
+};
+//Display All Users
+const displayUsers = async () => {
+  try {
+    const result = await getUsers();
+    const users = result.users
+      .map((user) => {
+        return `
       <tr>
         <td>${user.id}</td>
         <td>${user.name}</td>
@@ -25,54 +29,61 @@ const displayUsers = async ()=>{
           </a>
         </td>
       </tr>
-    `
-  }).join(' ');
+    `;
+      })
+      .join(" ");
 
-  document.querySelector(".users .users-info").innerHTML = users;
-  console.log(result);
-}
+    document.querySelector(".users .users-info").innerHTML = users;
+    console.log(result);
+    document.querySelector(".loader").classList.add("d-none");
+  } catch (error) {
+    document.querySelector(".loader").classList.remove("d-none");
+    document.querySelector(".loader").classList.add("d-none");
+  } finally {
+    document.querySelector(".loader").classList.add("d-none");
+  }
+};
 displayUsers();
-
-const deleteUser = async (id)=>{
-  const response = await axios.delete(`http://ums12.runasp.net/api/users/${id}`)
+//Delete User
+const deleteUser = async (id) => {
+  const response = await axios.delete(
+    `http://ums12.runasp.net/api/users/${id}`
+  );
   console.log(response);
-}
-
+};
+//Create New User
 const adduserform = document.querySelector(".create-user");
 const createUserbtn = document.querySelector(".create-user-btn");
 const submitbtn = document.querySelector(".submit-user-btn");
-const toastLiveExample = document.getElementById('liveToast')
-const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+const toastLiveExample = document.getElementById("liveToast");
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
 
-  createUserbtn.addEventListener("click", () => {
-    adduserform.classList.remove("hide");
-  });
+createUserbtn.addEventListener("click", () => {
+  adduserform.classList.remove("hide");
+});
 
-const createUserForm = document.forms['createUser'];
+const createUserForm = document.forms["createUser"];
 
-createUserForm.addEventListener("submit", async (e)=>{
+createUserForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const formData = new FormData(createUserForm);
-  const response = await axios.post(`http://ums12.runasp.net/api/users`, formData);
+  const response = await axios.post(
+    `http://ums12.runasp.net/api/users`,
+    formData
+  );
   console.log(response);
-  
-  if (response.status == 200){
+
+  if (response.status == 200) {
     adduserform.classList.add("hide");
     toastBootstrap.show();
   }
 });
 // Image File Reader
-createUserForm.image.addEventListener("change",()=>{
+createUserForm.image.addEventListener("change", () => {
   const file = createUserForm.image.files[0];
   const reader = new FileReader();
   reader.readAsDataURL(file);
-  reader.onload = function (e){
-  document.querySelector(".preview").setAttribute("src", e.target.result);
-  }
-})
-
-
-
-
-
-
+  reader.onload = function (e) {
+    document.querySelector(".preview").setAttribute("src", e.target.result);
+  };
+});
