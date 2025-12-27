@@ -28,4 +28,8 @@ body{
 .hide {
   display: none;
 }
+.user .image{
+  height: 200px;
+  background:#e0cffc;
 
+}

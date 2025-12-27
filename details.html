@@ -40,15 +40,50 @@
   <main>
     <section class="user py-5">
       <div class="container">
-        <div class="card border-0 shadow p-5">
-          <div class="details d-flex gap-3 align-items-center">
-            <div class="text-content">
-              <h3>User Name : <span class="userName"></span></h3>
-              <h3>User Email : <span class="userEmail"></span></h3>
-              <h3>User Age : <span class="userAge"></span></h3>
+        <div class="card border-0 shadow p-5 rounded-5">
+          <div class="details">
+            <div class="image d-flex justify-content-center position-relative rounded-5">
+              <img src="" alt=""
+                class="userImg rounded-circle position-absolute top-50 shadow" width="150px" height="150px">
             </div>
-            <div class="image">
-              <img src="" alt="" class="userImg">
+            <div class="text-content mt-5 d-flex justify-content-center flex-column gap-3 py-2">
+
+              <div
+                class="name-info card shadow rounded-5 my-3 p-3 d-flex justify-content-center align-items-center">
+                <p class="fs-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" stroke="#6610f2" stroke-width="1.5">
+                      <circle cx="12" cy="6" r="4" />
+                      <path stroke-linecap="round"
+                        d="M19.998 18q.002-.246.002-.5c0-2.485-3.582-4.5-8-4.5s-8 2.015-8 4.5S4 22 12 22c2.231 0 3.84-.157 5-.437" />
+                    </g>
+                  </svg> User Name</p>
+                <span class="userName fw-medium fs-4"></span>
+              </div>
+
+              <div
+                class="email-info card shadow rounded-5 my-3 p-3 d-flex justify-content-center align-items-center">
+                <p class="fs-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#6610f2"
+                      d="M5 5h13a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3m0 1c-.5 0-.94.17-1.28.47l7.78 5.03l7.78-5.03C18.94 6.17 18.5 6 18 6zm6.5 6.71L3.13 7.28C3.05 7.5 3 7.75 3 8v9a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V8c0-.25-.05-.5-.13-.72z" />
+                  </svg> User Email</p>
+                <span class="userEmail fw-medium fs-4"></span>
+              </div>
+
+              <div
+                class="age-info card shadow rounded-5 my-3 p-3 d-flex justify-content-center align-items-center">
+                <p class="fs-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#6610f2"
+                      d="M19.5 4h-3V2.5a.5.5 0 0 0-1 0V4h-7V2.5a.5.5 0 0 0-1 0V4h-3A2.503 2.503 0 0 0 2 6.5v13A2.503 2.503 0 0 0 4.5 22h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 4M21 19.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5V11h18zm0-9.5H3V6.5C3 5.672 3.67 5 4.5 5h3v1.5a.5.5 0 0 0 1 0V5h7v1.5a.5.5 0 0 0 1 0V5h3A1.5 1.5 0 0 1 21 6.5z" />
+                  </svg> User Age</p>
+                <span class="userAge fw-medium fs-4"></span>
+              </div>
+
+            </div>
+            <div class="btns d-flex flex-column pt-3">
+              <a href="./index.html" class="btn btn-indigo rounded-4 p-3 fs-5 d-flex gap-2 align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                  <path fill="#fff"
+                    d="m4 10l-.354.354L3.293 10l.353-.354zm16.5 8a.5.5 0 0 1-1 0zM8.646 15.354l-5-5l.708-.708l5 5zm-5-5.708l5-5l.708.708l-5 5zM4 9.5h10v1H4zM20.5 16v2h-1v-2zM14 9.5a6.5 6.5 0 0 1 6.5 6.5h-1a5.5 5.5 0 0 0-5.5-5.5z" />
+                </svg> Back to users</a>
             </div>
           </div>
 
@@ -68,7 +103,7 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
-  <script src="./assets/js/detilas.js"></script>
+  <script src="./assets/js/details.js"></script>
 </body>
 
 </html>
