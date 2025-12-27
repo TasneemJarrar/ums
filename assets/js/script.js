@@ -1,5 +1,5 @@
 const getUsers = async ()=>{
-  const response = await axios.get(`http://ums12.runasp.net/api/users`);
+  const response = await axios.get(`http://ums12.runasp.net/api/users?limit=1000`);
   return response.data;
 }
 
@@ -24,7 +24,6 @@ const displayUsers = async ()=>{
   }).join(' ');
 
   document.querySelector(".users .users-info").innerHTML = users;
-
 }
 displayUsers();
 
@@ -33,6 +32,16 @@ const deleteUser = async (id)=>{
   console.log(response);
 }
 
+const adduserform = document.querySelector(".create-user");
+const createUserbtn = document.querySelector(".create-user-btn");
+const submitbtn = document.querySelector(".submit-user-btn");
+const toastLiveExample = document.getElementById('liveToast')
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+
+  createUserbtn.addEventListener("click", () => {
+    adduserform.classList.remove("hide");
+  });
+
 const createUserForm = document.forms['createUser'];
 
 createUserForm.addEventListener("submit", async (e)=>{
@@ -40,18 +49,24 @@ createUserForm.addEventListener("submit", async (e)=>{
   const formData = new FormData(createUserForm);
   const response = await axios.post(`http://ums12.runasp.net/api/users`,formData);
   console.log(response);
+  if (response.status == 200){
+    submitbtn.addEventListener("click", () => {
+    adduserform.classList.add("hide");
+    toastBootstrap.show();
+  });
+  }
+})
+// Image File Reader
+createUserForm.image.addEventListener("change",()=>{
+  const file = createUserForm.image.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function (e){
+  document.querySelector(".preview").setAttribute("src", e.target.result);
+  }
 })
 
-const adduserform = document.querySelector(".create-user");
-const createUserbtn = document.querySelector(".create-user-btn");
-const submitbtn = document.querySelector(".submit-user-btn");
 
-  createUserbtn.addEventListener("click", () => {
-    adduserform.classList.remove("hide");
-  });
 
-  submitbtn.addEventListener("click", () => {
-    adduserform.classList.add("hide");
-  });
 
 
