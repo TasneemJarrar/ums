@@ -1,7 +1,7 @@
 const getUser = async () => {
   const params = new URLSearchParams(location.search);
   const userId = params.get("userId");
-  const response = await axios.get(`http://ums12.runasp.net/api/users/${userId}`);
+  const response = await axios.get(`https://ums12.runasp.net/api/users/${userId}`);
   return response.data;
 };
 const displayUserData = async () => {

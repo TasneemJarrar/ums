@@ -1,6 +1,6 @@
 const getUsers = async () => {
   const response = await axios.get(
-    `http://ums12.runasp.net/api/users?limit=1000`
+    `https://ums12.runasp.net/api/users?limit=1000`
   );
   return response.data;
 };
@@ -47,7 +47,7 @@ displayUsers();
 //Delete User
 const deleteUser = async (id) => {
   const response = await axios.delete(
-    `http://ums12.runasp.net/api/users/${id}`
+    `https://ums12.runasp.net/api/users/${id}`
   );
   console.log(response);
 };
@@ -68,7 +68,7 @@ createUserForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const formData = new FormData(createUserForm);
   const response = await axios.post(
-    `http://ums12.runasp.net/api/users`,
+    `https://ums12.runasp.net/api/users`,
     formData
   );
   console.log(response);
